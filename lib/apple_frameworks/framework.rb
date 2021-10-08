@@ -7,7 +7,7 @@ module AppleFrameworks
   # ```
   # LibraryName.Framework
   #   Info.plist
-  #   library_name (the actual dynamic lib)
+  #   library_name (the actual static lib)
   #   Headers
   #     library_name
   #       (all the headers)
