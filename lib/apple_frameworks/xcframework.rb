@@ -26,8 +26,6 @@ module AppleFrameworks
   #     LibraryName.framework
   # ```
   #
-  # Note: Binaries with multiple platforms are not supported by Xcode.
-  #
   class XCFramework
     class BuildUsingXcodeFailure < StandardError; end
 
@@ -51,7 +49,15 @@ module AppleFrameworks
     # Uses the `xcodebuild -create-xcframework` command to create the
     # XCFramework.
     #
-    # Note: this will require Xcode and its command line tools to be installed.
+    # This will require Xcode and its command line tools to be installed.
+    #
+    # Xcode has a couple of notable annoyances:
+    #
+    # * Fat binaries with multiple platforms (e.g. a single binary containing
+    #   iOS simulator x64 and iOS arm64) are not supported.
+    # * To include multiple architectures of the same platform (e.g. iOS
+    #   simulator x64 and arm64), they first need to be combined as a Fat
+    #   binary.
     #
     def build_using_xcode
       validations
