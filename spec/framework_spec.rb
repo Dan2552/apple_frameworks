@@ -68,8 +68,8 @@ RSpec.describe AppleFrameworks::Framework do
         a1 = File.join(headers_directory, "a.h")
         b1 = File.join(headers_directory, "b.h")
 
-        a2 = File.join(parent_directory, "#{framework_name}.framework", "Headers", framework_name, "a.h")
-        b2 = File.join(parent_directory, "#{framework_name}.framework", "Headers", framework_name, "b.h")
+        a2 = File.join(parent_directory, "#{framework_name}.framework", "Headers", "a.h")
+        b2 = File.join(parent_directory, "#{framework_name}.framework", "Headers", "b.h")
 
         expect(File.read(a1)).to eq(File.read(a2))
         expect(File.read(b1)).to eq(File.read(b2))

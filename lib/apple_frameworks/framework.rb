@@ -9,8 +9,7 @@ module AppleFrameworks
   #   Info.plist
   #   library_name (the actual static lib)
   #   Headers
-  #     library_name
-  #       (all the headers)
+  #     (all the headers)
   # ```
   #
   class Framework
@@ -53,7 +52,7 @@ module AppleFrameworks
         raise "File already exists at Framework destination"
       end
 
-      FileUtils.mkdir_p(File.join(@framework_directory, "Headers"))
+      FileUtils.mkdir_p(File.join(@framework_directory))
     end
 
     def copy_lib
@@ -61,7 +60,7 @@ module AppleFrameworks
     end
 
     def copy_headers
-      FileUtils.cp_r(File.join(@headers_directory), File.join(@framework_directory, "Headers", @framework_name))
+      FileUtils.cp_r(File.join(@headers_directory), File.join(@framework_directory, "Headers"))
     end
 
     def generate_plist
